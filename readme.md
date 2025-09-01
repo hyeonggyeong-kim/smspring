@@ -24,7 +24,7 @@
 ![ERD](imgs/readme/ERD.png)
 
 ## 화면 흐름도
-![flowchart](imgs/readme/up.png)
+![flowchart](readme/img/up.png)
 
 ***
 ## 🛠 개발환경 및 개발도구
