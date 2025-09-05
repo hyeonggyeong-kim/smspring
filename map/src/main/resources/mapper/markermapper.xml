@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.sm.app.repository.MarkerRepository">
+
+    <!-- 반경 내 조회 -->
+    <select id="selectWithinRadius" resultType="edu.sm.app.dto.Marker">
+        SELECT m.*, (6371 * ACOS(COS(RADIANS(#{lat})) * COS(RADIANS(m.lat)) * COS(RADIANS(m.lng) - RADIANS(#{lng})) + SIN(RADIANS(#{lat})) * SIN(RADIANS(m.lat)))) AS distance
+        FROM map m
+        HAVING distance &lt;= #{radiusKm}
+        ORDER BY distance ASC
+        <if test="limit != null">
+            LIMIT #{limit}
+        </if>
+    </select>
+
+    <!-- 단건 조회 -->
+    <select id="select" parameterType="int" resultType="edu.sm.app.dto.Marker">
+        SELECT * FROM map WHERE target = #{target}
+    </select>
+
+    <!-- 전체 조회 -->
+    <select id="selectAll" resultType="edu.sm.app.dto.Marker">
+        SELECT * FROM map
+    </select>
+
+    <!-- loc로 조회 -->
+    <select id="findByLoc" parameterType="string" resultType="edu.sm.app.dto.Marker">
+        SELECT * FROM map WHERE loc = #{loc}
+    </select>
+
+</mapper>
