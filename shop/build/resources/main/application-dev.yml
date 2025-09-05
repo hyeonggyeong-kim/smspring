@@ -10,8 +10,8 @@ server:
       charset: UTF-8
       force: true
 spring:
-  #  config:
-  #    import: optional:file:.env[.properties]  # .env import
+  config:
+    import: optional:file:.env[.properties]  # .env import
   mvc:
     view:
       prefix: /views/
