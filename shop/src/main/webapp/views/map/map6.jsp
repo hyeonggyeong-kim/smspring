@@ -87,6 +87,6 @@
     });
 </script>
 <div class="col-sm-10">
-    <h2>Map5</h2>
+    <h2>Map6</h2>
     <div id="map1"></div>
 </div>

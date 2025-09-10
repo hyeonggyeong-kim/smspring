@@ -8,7 +8,7 @@
     }
 </style>
 <script>
-    let map5 ={
+    let map1 ={
         init:function(){
             let mapContainer = document.getElementById('map5');
             let mapOption = {
@@ -64,5 +64,5 @@
 </script>
 <div class="col-sm-10">
     <h2>Map5</h2>
-    <div id="map5"></div>
+    <div id="map1"></div>
 </div>

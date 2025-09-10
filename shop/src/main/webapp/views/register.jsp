@@ -1,28 +1,29 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <script>
-    const cust_add = {
+    const register = {
         init:function(){
-            $('#cust_add_btn').click(()=>{
+            $('#cust_register_btn').click(()=>{
                 this.send();
             });
         },
         send:function(){
-            $('#cust_add_form').attr('method','post');
-            $('#cust_add_form').attr('action','<c:url value="/cust/addimpl"/>');
-            $('#cust_add_form').submit();
+            $('#cust_register_form').attr('method','post');
+            $('#cust_register_form').attr('action','<c:url value="/registerimpl"/>');
+            $('#cust_register_form').submit();
         }
     }
     $(function(){
-        cust_add.init();
+        register.init();
     });
 </script>
 
 <div class="col-sm-10">
-    <h2>Cust Add Page</h2>
+    <h2>Register Page</h2>
     <div class="row">
         <div class="col-sm-8">
-            <form id="cust_add_form">
+            <form id="cust_register_form">
                 <div class="form-group">
                     <label for="id">Id:</label>
                     <input type="text" name="custId" class="form-control" placeholder="Enter id" id="id">
@@ -40,7 +41,7 @@
                     <input type="text" name="custAddr"  class="form-control" placeholder="Enter name" id="addr">
                 </div>
             </form>
-            <button id="cust_add_btn" class="btn btn-primary">Add</button>
+            <button id="cust_register_btn" class="btn btn-primary">Add</button>
 
         </div>
         <div class="col-sm-4">
