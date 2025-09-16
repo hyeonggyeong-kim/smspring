@@ -6,9 +6,9 @@
 <div class="col text-center ">
   <ul class="pagination justify-content-center">
     <c:choose>
-      <c:when test="${plist.getPrePage() != 0}">
+      <c:when test="${clist.getPrePage() != 0}">
         <li class="page-item">
-          <a  class="page-link"  href="<c:url value="${target}/getpage?pageNo=${plist.getPrePage()}"/>">Previous</a>
+          <a  class="page-link"  href="<c:url value="${target}/getpage?pageNo=${clist.getPrePage()}" />">Previous</a>
         </li>
       </c:when>
       <c:otherwise>
@@ -18,25 +18,25 @@
       </c:otherwise>
     </c:choose>
 
-    <c:forEach begin="${plist.getNavigateFirstPage() }" end="${plist.getNavigateLastPage()}" var="page">
+    <c:forEach begin="${clist.getNavigateFirstPage() }" end="${clist.getNavigateLastPage() }" var="page">
       <c:choose>
-        <c:when test="${plist.getPageNum() == page}">
+        <c:when test="${clist.getPageNum() == page}">
           <li class="page-item active">
-            <a class="page-link"  href="<c:url value="${target}/getpage?pageNo=${page}"/>">${page}</a>
+            <a class="page-link"  href="<c:url value="${target}/getpage?pageNo=${page}" />">${page }</a>
           </li>
         </c:when>
         <c:otherwise>
           <li class="page-item">
-            <a class="page-link"  href="<c:url value="${target}/getpage?pageNo=${page}"/>">${page}</a>
+            <a class="page-link"  href="<c:url value="${target}/getpage?pageNo=${page}" />">${page }</a>
           </li>
         </c:otherwise>
       </c:choose>
 
     </c:forEach>
     <c:choose>
-      <c:when test="${plist.getNextPage() != 0}">
+      <c:when test="${clist.getNextPage() != 0}">
         <li class="page-item">
-          <a class="page-link"  href="<c:url value="${target}/getpage?pageNo=${ppage.getNextPage()}"/>">Next</a>
+          <a class="page-link"  href="<c:url value="${target}/getpage?pageNo=${cpage.getNextPage()}" />">Next</a>
         </li>
       </c:when>
       <c:otherwise>
@@ -45,6 +45,7 @@
         </li>
       </c:otherwise>
     </c:choose>
+
   </ul>
 </div>
 <!-- pagination end -->
