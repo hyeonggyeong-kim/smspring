@@ -1,0 +1,48 @@
+server:
+  port: 8088
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+spring:
+  config:
+    import: optional:file:.env[.properties]  # .env import
+  mvc:
+    view:
+      prefix: /views/
+      suffix: .jsp
+  datasource:
+    #url: jdbc:mysql://127.0.0.1:3306/shopdb?serverTimezone=Asia/Seoul
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mysql://127.0.0.1:3306/shopdb?characterEncoding=utf8
+    username: smuser
+    password: ENC(wcpLb3m0/NbJ2urXvQXQiQ==)
+
+mybatis:
+  type-aliases-package: edu.sm.app.dto
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+logging:
+  level:
+    root: info
+
+# Application Config
+# @Value("${}")
+
+app:
+  url:
+    sse: http://127.0.0.1:8088/
+    mainsse: https://127.0.0.1:8443/
+    wsurl: https://127.0.0.1:8443/
+  dir:
+    imgsdir: file:///C:/smspring/imgs/     # 화면 출력 용
+    uploadimgsdir: C:/smspring/imgs/    # 파일 Write 용
+    logsdir: file:///C:/smspring/logs/     # 화면 출력 용
+    logsdirRead: C:/smspring/logs/ #Read 용
+
+  key:
+    skey: ${MY_KEY}
+    algo: PBEWithMD5AndDES # 주소를 암복화
+    wkey: ENC(hW0+p3DUC5Nn8Rm3z3d+/1sbYmcwJiyGo6c0JDi2rkfzjnSGZuiXDbCQCuEyQWesm1sPOIAkAv9dLnsrF5G8ePf5vosdDTK2mXegikGXAXWc7i3udkh3QQ6bY/hqBEyo47Tm5fphNoY=)
+    owkey: ENC(MeEnJcxBsYLYu/4j5TzH/sstmqWrxreAVFzHQkmaRu6DjQIKNVTfWYxR0LXH6aEJ)

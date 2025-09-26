@@ -66,7 +66,7 @@
         <div class="form-group">
             <label for="update">Update Date:</label>
             <p id="update">
-                <fmt:parseDate value="${p.productUpdate }"
+                <fmt:parseDate value="${p.productUpdate}"
                                pattern="yyyy-MM-dd HH:mm:ss" var="parsedDateTime" type="both" />
                 <fmt:formatDate pattern="yyyy년MM월dd일 HH시mm분ss시" value="${parsedDateTime }" />
             </p>
